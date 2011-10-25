@@ -32,7 +32,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 #Gertig
 gem 'devise', '~> 1.3.1' #'~> 1.2.0' #:git => 'git://github.com/plataformatec/devise.git' #,
-gem 'devise_invitable', :git => 'git://github.com/AndrewGertig/devise_invitable.git' #,'~> 0.4'  
+gem 'devise_invitable' 
 gem 'cancan'
 gem 'paperclip'
 gem 'nifty-generators'

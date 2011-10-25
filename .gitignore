@@ -1,4 +1,3 @@
-config/database.yml
 **.sw[a-z]
 .bundle
 db/*.sqlite3
