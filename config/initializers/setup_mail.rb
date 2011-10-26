@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
   :port                 => 587,
   :domain               => "techclt.com",
   :user_name            => "welcome@techclt.com",
-  :password             => GMAIL_PASSWORD,
+  :password             => Rails.env.production? ? GMAIL_PASSWORD : "",
   :enable_starttls_auto => true
 }
 

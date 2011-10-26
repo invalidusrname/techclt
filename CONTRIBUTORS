@@ -1,0 +1,3 @@
+   /* generated with this command:*/
+   /* git log | grep ^Author: | sed 's/ <.*//; s/^Author: //' | sort | uniq -c | sort -nr*/
+   3 AndrewGertig
