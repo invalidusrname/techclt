@@ -6,3 +6,4 @@ tmp/
 public/stylesheets/compiled/**
 **.orig
 config/initializers/app_keys.rb
+.sass-cache/
