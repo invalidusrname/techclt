@@ -13,6 +13,10 @@ Installation
 - rails server
 - visit http://localhost:3000 in a browser.
 
+**ubuntu users may need to:
+    
+    $ sudo apt-get install libmagickwand-dev libmagick-dev
+
 Contributing
 -----------
 
