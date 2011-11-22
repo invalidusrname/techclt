@@ -46,3 +46,19 @@ gem 'carrierwave', '~> 0.5.7'
 gem 'fog'
 #gem 'jammit'
 #gem 'dalli'
+
+group :development do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'factory_girl_rails' 
+end
+
+group :test do
+  gem 'database_cleaner'
+end
