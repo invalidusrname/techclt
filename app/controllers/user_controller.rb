@@ -7,15 +7,13 @@ class UserController < ApplicationController
     #response.headers['Cache-Control'] = 'public, max-age=300'
     
     if is_mobile?
-      #@users = User.all(:conditions => ['visible = ? AND id = ?', true, 1], :order => 'id DESC')
       @users = User.all(:conditions => ['visible = ?', true], :order => 'id DESC')
     else
-      @users = User.paginate :per_page => 6, :page => params[:page], :conditions => ['visible = ?', true], # :conditions => ['id = ?', "#{}"], 
-             :order => 'id DESC' #'random()' #
+      @users = User.visible.paginate :per_page => 6, :page => params[:page] 
     end
     
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render :json => @users }
     end
     
@@ -37,8 +35,6 @@ class UserController < ApplicationController
   def create
     
     @user = User.new(params[:user])
-    # puts "User has an image"
-    # puts @user.image?
    
     if @user.save  
       
@@ -62,8 +58,6 @@ class UserController < ApplicationController
   def update
     @user = User.find(params[:id])
     
-    # puts "User has an image"
-    # puts @user.image?
     
     @user.updating_password = true if !params[:user][:password].blank? #Conditional Validation for updating a password
     params[:user].delete(:password) if params[:user][:password].blank?

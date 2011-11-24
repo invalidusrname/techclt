@@ -47,6 +47,9 @@ class User < ActiveRecord::Base
   
   
   #SEO override of to_param for URLS
+
+  scope :visible, where(:visible => true).order('created_at DESC')
+
   def to_param
     "#{id}-#{full_name.gsub(/[^a-z0-9]+/i, '-')}"
   end

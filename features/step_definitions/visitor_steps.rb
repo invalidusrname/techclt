@@ -9,3 +9,7 @@ end
 Then /^I should see "([^"]*)"$/ do |name|
   page.should have_content(name)
 end
+
+Then /^I should not see "([^"]*)"$/ do |content|
+  page.should_not have_content(content)
+end
