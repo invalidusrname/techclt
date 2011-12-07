@@ -3,7 +3,7 @@ Techclt::Application.routes.draw do
   resources :authentications
   resources :tags
   
-  resources :about
+  match '/about' => 'about#index'
   
   match '/auth/:provider/callback' => 'authentications#create' #uses :provider so that it can be any provider, like Twitter, Facebook, or Linked_In
 

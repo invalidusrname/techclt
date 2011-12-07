@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) || "Untitled" %></title>
+  <title><%= yield(:title) || "techCLT" %></title>
   
   <%# <%= stylesheet_link_tag 'gertig', 'token-input-facebook' %>
   <!--[if gte IE 7]><%= stylesheet_link_tag 'style-ie' %><![endif]-->
     
-  <script src="https://http://code.jquery.com/jquery-1.7.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
   
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css">
   <%#= yield(:head) %>
@@ -62,13 +62,13 @@
 		
   			<div id='navbar'>		
   				<ul>
-  				  <li><%= link_to "About", {:controller => 'about', :action => 'index'} %></li>
+  				  <li><%= link_to "About", '/about' %></li>
   				  	<% if can? :manage, :all %>
     					  <li><%= link_to 'Users', {:controller => 'user_management', :action => 'index'} %></li>
     					  <li><%= link_to 'Tags', {:controller => 'tags', :action => 'index'}, :target => '_blank' %></li>
     					<% end %>
   				  <% if user_signed_in? %>
-		          <li><%= link_to "Profile", {:controller => 'user', :action => 'edit', :id => current_user } %></li>
+		          <li><%= link_to "Profile", edit_user_path(current_user) %></li>
 		          <li><%= link_to "Invites", new_user_invitation_path %></li> <%# : #{current_user.invitation_limit} %>
 		          <li><%= link_to "Logout", destroy_user_session_path %></li>
 		        <% else %>
@@ -83,7 +83,6 @@
   
 	
   <div id="content">
-    
     <%= yield %>
   </div> <!-- End 'content' -->
   

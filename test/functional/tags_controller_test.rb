@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class TagsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  
   setup do
     @tag = tags(:one)
   end

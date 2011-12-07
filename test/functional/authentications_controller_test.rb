@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class AuthenticationsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  
   def test_index
     get :index
     assert_template 'index'
