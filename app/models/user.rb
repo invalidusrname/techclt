@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  
+
   has_many :descriptors, :dependent => :destroy
   has_many :tags, :through => :descriptors
-  
+
   has_many :authentications
-  
-  
+
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable, # :registerable,
   devise :database_authenticatable, 
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
                   :github, :dribble, :linkedin, :forrst, :stackoverflow,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at,
                   :image, :tag_tokens, :tag_ids, :invitation_limit
-  
+
   #Validations
    validates_presence_of :password, :if => :should_validate_password?
    attr_accessor :updating_password, :new_user #Conditional Validation

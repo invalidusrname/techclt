@@ -9,10 +9,10 @@ Techclt::Application.routes.draw do
 
   devise_for :users, :path_names => { :sign_in => "login" }, :controllers => { :registrations => 'registrations', :invitations => 'invitations' } #, :sessions => 'sessions'  }  
   devise_scope :user do
-    
-    #namespace :api do
-     # resources :sessions, :only => [:create, :destroy] #added to return JSON for a JSON POST to create method
-    #end
+
+  #namespace :api do
+   # resources :sessions, :only => [:create, :destroy] #added to return JSON for a JSON POST to create method
+  #end
     
     match '/login' => 'devise/sessions#new'
     match '/logout' => 'devise/sessions#destroy'

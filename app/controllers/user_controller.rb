@@ -56,7 +56,6 @@ class UserController < ApplicationController
   end
   
   def edit
-    debugger
     @user = User.find(params[:id])
   end
   
