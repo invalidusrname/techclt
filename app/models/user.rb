@@ -34,18 +34,6 @@ class User < ActiveRecord::Base
   #CarrierWave
   mount_uploader :image, ImageUploader #, :mount_on => :photo_file_name
   
-  # #Paperclip method :large => "600x600>"
-  # has_attached_file :photo, :styles => { :small => "150x150>", :medium => "300x300>", :large => "500x500>" }, # :styles Needs ImageMagick 
-  #                   :storage => :s3, 
-  #                   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
-  #                   :path => "/:style/:basename.:extension"
-  #                   #:url => "/images/photos/:id/:style/:basename.:extension",
-  #                   #:path => ":rails_root/public/images/photos/:id/:style/:basename.:extension"
-  #                   
-  #                   #default :url => "/:attachment/:id/:style/:basename.:extension",
-  #                   #default :path => ":rails_root/public/:attachment/:id/:style/:basename.:extension"
-  
-  
   #SEO override of to_param for URLS
   def to_param
     "#{id}-#{full_name.gsub(/[^a-z0-9]+/i, '-')}"
@@ -108,7 +96,20 @@ class User < ActiveRecord::Base
      super(conditions) 
    end
    ## END uppercase in emails fix
-  
-  
-  
+
+   def self.visible
+     where(:visible => true)
+   end
+
+   def self.random_order
+     case ActiveRecord::Base.connection.adapter_name
+     when 'SQLite', 'PostgreSQL'
+       order('RANDOM()')
+     when 'MySQL'
+       order('RAND()')
+     else
+       order('id DESC')
+     end
+   end
 end
+

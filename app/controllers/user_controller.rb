@@ -2,16 +2,10 @@ class UserController < ApplicationController
   load_and_authorize_resource #, :except[:index, :show]
     
   def index
-    #@users = User.all #.excludes(:id => current_user.id)
-    
-    #response.headers['Cache-Control'] = 'public, max-age=300'
-    
     if is_mobile?
-      #@users = User.all(:conditions => ['visible = ? AND id = ?', true, 1], :order => 'id DESC')
-      @users = User.all(:conditions => ['visible = ?', true], :order => 'id DESC')
+      @users = User.visible.random_order.all
     else
-      @users = User.paginate :per_page => 6, :page => params[:page], :conditions => ['visible = ?', true], # :conditions => ['id = ?', "#{}"], 
-             :order => 'id DESC' #'random()' #
+      @users = User.visible.random_order.paginate(:per_page => 6, :page => params[:page])
     end
     
     respond_to do |format|
