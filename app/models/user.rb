@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable, # :registerable,
-  devise :database_authenticatable, 
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :invitable #, :invite_for => 0 #0 is default and mean s invitation does not expire, 2.weeks #devise_invitable
 
