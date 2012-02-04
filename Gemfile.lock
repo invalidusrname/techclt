@@ -148,7 +148,6 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.2.1)
-    newrelic_rpm (3.3.0)
     nifty-generators (0.4.6)
     nokogiri (1.5.0)
     oa-basic (0.3.2)
@@ -300,7 +299,6 @@ DEPENDENCIES
   growl
   guard-cucumber
   heroku
-  newrelic_rpm
   nifty-generators
   omniauth (~> 0.3.2)
   pg
