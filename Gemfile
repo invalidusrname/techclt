@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails', '3.0.11'
+gem 'rails', '3.0.19'
 
 gem 'aws-s3'
 gem 'devise', '~> 1.3.1' #'~> 1.2.0' #:git => 'git://github.com/plataformatec/devise.git' #,
